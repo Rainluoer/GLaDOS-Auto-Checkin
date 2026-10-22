@@ -47,8 +47,8 @@ jobs:
           YUNHU_TOKEN: ${{ secrets.YUNHU_TOKEN }}
           YUNHU_RECV_ID: ${{ secrets.YUNHU_RECV_ID }}
           YUNHU_RECV_TYPE: ${{ secrets.YUNHU_RECV_TYPE }}
-          # #9 积分兑换计划（可选；不配置则默认不兑换，不影响现有签到）
-          EXCHANGE_PLAN: ${{ secrets.EXCHANGE_PLAN }}
+          # 签到后积分达到 200 时自动兑换 30 天；不足则跳过
+          EXCHANGE_PLAN: 'plan200'
           GLADOS_EXCHANGE_PLAN: ${{ secrets.GLADOS_EXCHANGE_PLAN }}
 
   keepalive:
@@ -74,3 +74,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit --allow-empty -m "chore: keepalive to prevent workflow suspension"
           git push
+
